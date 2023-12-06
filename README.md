@@ -9,7 +9,7 @@
 
 1. Accede al directorio del backend
     ```bash
-    `cd backend`
+    cd backend
     ```
 
 2. Instala las dependencias
@@ -44,11 +44,8 @@
     php artisan serve
     ```
 
-### Requisitos del Frontend
-7. Copia el archivo de configuración: `cp .env.example .env`
-8. Genera la clave de la aplicación: `php artisan key:generate`
-9. Configura la base de datos en el archivo `.env`
-10. Ejecuta las migraciones: `php artisan migrate`
-11. utiliza los seeders: `php artisan migrate:fresh --seed`
-12. Ejecuta el servidor de desarrollo: `php artisan serve`
-```
+## Frontend
+### Instalación del Frontend
+
+
+
