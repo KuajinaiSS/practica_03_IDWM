@@ -9,7 +9,7 @@
 
 1. Accede al directorio del backend
     ```bash
-    `cd backend`
+    cd backend
     ```
 
 2. Instala las dependencias
