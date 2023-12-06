@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "fe7bcb9e-1367-4ee4-a2e9-2aefd01d2c89",
+		"name": "Practica 03",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29739139"
+	},
+	"item": [
+		{
+			"name": "getProfile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8000/api/profile"
+			},
+			"response": []
+		},
+		{
+			"name": "updateProfile",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/profile/1?rut=207344842&name=Ignacio&Lastname=Umana Morel&email=correo@gmail.com&city=Chile&country=Calama&summary=lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat at quo porro, voluptas, placeat numquam consequuntur veniam quaerat ea laboriosam maxime praesentium ipsam, tempora nemo labore explicabo eos inventore minus",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"profile",
+						"1"
+					],
+					"query": [
+						{
+							"key": "rut",
+							"value": "207344842"
+						},
+						{
+							"key": "name",
+							"value": "Ignacio"
+						},
+						{
+							"key": "Lastname",
+							"value": "Umana Morel"
+						},
+						{
+							"key": "email",
+							"value": "correo@gmail.com"
+						},
+						{
+							"key": "city",
+							"value": "Chile"
+						},
+						{
+							"key": "country",
+							"value": "Calama"
+						},
+						{
+							"key": "summary",
+							"value": "lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat at quo porro, voluptas, placeat numquam consequuntur veniam quaerat ea laboriosam maxime praesentium ipsam, tempora nemo labore explicabo eos inventore minus"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateFramework",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/profile/1/framework/1?name=Laravelll&level=Beginner&year=2022",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"profile",
+						"1",
+						"framework",
+						"1"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Laravelll"
+						},
+						{
+							"key": "level",
+							"value": "Beginner"
+						},
+						{
+							"key": "year",
+							"value": "2022"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteFramework",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8000/api/profile/1/framework/2"
+			},
+			"response": []
+		},
+		{
+			"name": "createFramework",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/profile/1/framework?name=React&level=Beginner&year=2023",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"profile",
+						"1",
+						"framework"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "React"
+						},
+						{
+							"key": "level",
+							"value": "Beginner"
+						},
+						{
+							"key": "year",
+							"value": "2023"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
