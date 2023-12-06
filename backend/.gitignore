@@ -1,0 +1,44 @@
+# Directorios de Laravel que no deben rastrearse
+/vendor/
+/node_modules/
+/public/storage/
+/storage/*.key
+Homestead.json
+Homestead.yaml
+
+# Archivos de configuración y caché que no deben rastrearse
+.env
+.phpunit.result.cache
+/.phpstorm.meta.php
+/.env.backup
+/.env.example
+/.vscode/
+
+# Archivos generados automáticamente
+composer.lock
+npm-debug.log
+
+# Dependencias de Composer
+/vendor/
+!/vendor/autoload.php
+!/vendor/basic/README.md
+/vendor/bin/*
+!/vendor/bin/phpunit
+
+# Dependencias de NPM
+/node_modules/
+npm-debug.log*
+
+# Archivos de respaldo y caché
+/public/hot
+/storage/*.log
+/storage/debugbar/
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/testing/
+/storage/framework/views/
+/storage/logs/
+/.idea/
+/.phpunit.result.cache
+/.phpunit-watcher.yml
+/.phpunit-watcher.yml.dist
