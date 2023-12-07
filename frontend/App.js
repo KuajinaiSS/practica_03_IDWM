@@ -4,7 +4,6 @@ import { PaperProvider, TextInput, Button, DataTable, Card, Title, Paragraph } f
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import agent from "./services/api";
 import axios from "axios";
-import Nose from "./components/Nose";
 
 const BASE_URL = 'http://192.168.4.25:8000/api';
 
@@ -28,6 +27,17 @@ export default function App() {
       })
       .catch((error) => console.log({ error }));
   };
+
+  
+  const handleDeleteFramework = (frameworkId) => {
+    axios.delete(`${BASE_URL}/profile/1/framework/${frameworkId}`)
+      .then((response) => {
+        console.log({ response });
+        getData();
+      })
+      .catch((error) => console.log({ error }));
+};
+
 
   // usando agent
   const getData = async () => {
@@ -72,19 +82,42 @@ export default function App() {
                 </View>
 
 
+                <DataTable>
+                  <DataTable.Header>
+                    <DataTable.Title style={{ width: '33%' }}>
+                      <Text style={{ fontWeight: 'bold', color: 'black' }}>Tecnologia</Text>
+                      </DataTable.Title>
 
+                    <DataTable.Title style={{ width: '33%' }}>
+                      <Text style={{ fontWeight: 'bold', color: 'black' }}>Nivel</Text>
+                      </DataTable.Title>
 
-                {/* {profile.frameworks.map((framework) => (
-                  <Nose
-                    key={framework.id}
+                    <DataTable.Title style={{ width: '33%' }}>
+                      <Text style={{ fontWeight: 'bold', color: 'black' }}>Año</Text>
+                      </DataTable.Title>
 
-                    name={framework.name}
-                    level={framework.level}
-                    year={framework.year}
+                    <DataTable.Title style={{ width: '33%' }}></DataTable.Title>
+                  </DataTable.Header>
 
-                  />
-                ))} */}
-
+                  
+                    {profile.frameworks &&
+                      profile.frameworks.map((framework) => (
+                        <DataTable.Row key={framework.id}>
+                          <DataTable.Cell style={{ width: '33%' }}><Text>{framework.name}</Text></DataTable.Cell>
+                          <DataTable.Cell style={{ width: '33%' }}><Text>{framework.level}</Text></DataTable.Cell>
+                          <DataTable.Cell style={{ width: '33%' }}><Text>{framework.year}</Text></DataTable.Cell>
+                          <DataTable.Cell style={{ width: '33%' }}>
+                            <Button
+                              onPress={() => handleDeleteFramework(framework.id)}
+                              mode="contained"
+                              labelStyle={{ color: 'white', fontWeight: 'bold' }}
+                            >
+                              Delete
+                            </Button>
+                          </DataTable.Cell>
+                        </DataTable.Row>
+                      ))}
+                </DataTable>
 
               </View>
             </View>
