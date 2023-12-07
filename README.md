@@ -46,6 +46,19 @@
 
 ## Frontend
 ### Instalación del Frontend
+1. Nos dirigimos al frontend
+    ```bash
+    cd ../frontend
+    ```
+2. Instalamos las dependencias
+    ```bash
+    npm install
+    ```
+3. ejecutamos el proyecto en Android studio
+    ```bash
+    npx react-native run android
+    ```
 
+   
 
 
