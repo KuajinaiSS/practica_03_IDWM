@@ -4,6 +4,7 @@ import { PaperProvider, TextInput, Button, DataTable, Card, Title, Paragraph } f
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import agent from "./services/api";
 import axios from "axios";
+import Nose from "./components/Nose";
 
 const BASE_URL = 'http://192.168.4.25:8000/api';
 
@@ -70,41 +71,19 @@ export default function App() {
                   </View>
                 </View>
 
-                {/* Sección "Mis conocimientos" */}
-                <View style={styles.section}>
-                  <Text style={styles.sectionTitle}>Mis conocimientos</Text>
 
-                  <View style={styles.sectionItem}>
-                    <Text style={styles.subTitle}>Lenguajes de programación </Text>
-                    {/* <Text>{profile.languages}</Text> */}
-                  </View>
 
-                  <View style={styles.sectionItem}>
-                    <Text style={styles.subTitle}>Frameworks</Text>
-                    {/* <Text>{profile.frameworks}</Text> */}
-                  </View>
 
-                  <View style={styles.sectionItem}>
-                    <Text style={styles.subTitle}>Herramientas</Text>
-                    {/* <Text>{profile.tools}</Text> */}
-                  </View>
+                {/* {profile.frameworks.map((framework) => (
+                  <Nose
+                    key={framework.id}
 
-                </View>
+                    name={framework.name}
+                    level={framework.level}
+                    year={framework.year}
 
-                {/* <View>
-                  <Card>
-                    <Card.Content>
-                      <Title>Frameworks</Title>
-                      {frameworks.map((framework) => (
-                        <View key={framework.id}>
-                          <Paragraph>{framework.name}</Paragraph>
-                          <Paragraph>{framework.level}</Paragraph>
-                          <Paragraph>{framework.year}</Paragraph>
-                        </View>
-                      ))}
-                    </Card.Content>
-                  </Card>
-                </View> */}
+                  />
+                ))} */}
 
 
               </View>
@@ -116,7 +95,6 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
-
 
 
 
