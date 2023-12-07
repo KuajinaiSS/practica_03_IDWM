@@ -41,7 +41,7 @@
 
 8. Ejecuta el servidor de desarrollo
     ```bash
-    php artisan serve
+    php artisan serve --host=0.0.0.0
     ```
 
 ## Frontend
