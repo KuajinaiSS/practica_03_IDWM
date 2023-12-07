@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, ScrollView, View, Text } from "react-native";
-import { PaperProvider, TextInput, Button, DataTable, Card, Title, Paragraph } from "react-native-paper";
+import { PaperProvider, TextInput, Button, DataTable, Card, Title, Paragraph, IconButton, MD3Colors } from "react-native-paper";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import agent from "./services/api";
 import axios from "axios";
@@ -28,7 +28,7 @@ export default function App() {
       .catch((error) => console.log({ error }));
   };
 
-  
+
   const handleDeleteFramework = (frameworkId) => {
     axios.delete(`${BASE_URL}/profile/1/framework/${frameworkId}`)
       .then((response) => {
@@ -36,7 +36,7 @@ export default function App() {
         getData();
       })
       .catch((error) => console.log({ error }));
-};
+  };
 
 
   // usando agent
@@ -83,40 +83,51 @@ export default function App() {
 
 
                 <DataTable>
-                  <DataTable.Header>
-                    <DataTable.Title style={{ width: '33%' }}>
+                  <DataTable.Header style={styles.headerTable}>
+                    <DataTable.Title style={styles.cell}>
                       <Text style={{ fontWeight: 'bold', color: 'black' }}>Tecnologia</Text>
-                      </DataTable.Title>
+                    </DataTable.Title>
 
-                    <DataTable.Title style={{ width: '33%' }}>
+                    <DataTable.Title style={styles.cell}>
                       <Text style={{ fontWeight: 'bold', color: 'black' }}>Nivel</Text>
-                      </DataTable.Title>
+                    </DataTable.Title>
 
-                    <DataTable.Title style={{ width: '33%' }}>
+                    <DataTable.Title style={styles.cell}>
                       <Text style={{ fontWeight: 'bold', color: 'black' }}>Año</Text>
-                      </DataTable.Title>
+                    </DataTable.Title>
 
-                    <DataTable.Title style={{ width: '33%' }}></DataTable.Title>
+                    <DataTable.Title style={styles.cell}>
+                    <Text style={{ fontWeight: 'bold', color: 'black' }}>Accion</Text>
+                    </DataTable.Title>
                   </DataTable.Header>
 
-                  
-                    {profile.frameworks &&
-                      profile.frameworks.map((framework) => (
-                        <DataTable.Row key={framework.id}>
-                          <DataTable.Cell style={{ width: '33%' }}><Text>{framework.name}</Text></DataTable.Cell>
-                          <DataTable.Cell style={{ width: '33%' }}><Text>{framework.level}</Text></DataTable.Cell>
-                          <DataTable.Cell style={{ width: '33%' }}><Text>{framework.year}</Text></DataTable.Cell>
-                          <DataTable.Cell style={{ width: '33%' }}>
-                            <Button
-                              onPress={() => handleDeleteFramework(framework.id)}
-                              mode="contained"
-                              labelStyle={{ color: 'white', fontWeight: 'bold' }}
-                            >
-                              Delete
-                            </Button>
-                          </DataTable.Cell>
-                        </DataTable.Row>
-                      ))}
+
+                  {profile.frameworks &&
+                    profile.frameworks.map((framework) => (
+                      <DataTable.Row key={framework.id} style={styles.row}>
+                        <DataTable.Cell style={styles.cell}><Text>{framework.name}</Text></DataTable.Cell>
+                        <DataTable.Cell style={styles.cell}><Text>{framework.level}</Text></DataTable.Cell>
+                        <DataTable.Cell style={styles.cell}><Text>{framework.year}</Text></DataTable.Cell>
+                        <DataTable.Cell style={styles.iconCell}>
+
+
+                          <IconButton
+                            icon="delete"
+                            iconColor={MD3Colors.error50}
+                            size={20}
+                            onPress={() => handleDeleteFramework(framework.id)}
+                          />
+
+                          <IconButton
+                            icon="pencil"
+                            iconColor={MD3Colors.neutral50}
+                            size={20}
+                            onPress={() => handleEditFramework(framework.id)}
+                          />
+
+                        </DataTable.Cell>
+                      </DataTable.Row>
+                    ))}
                 </DataTable>
 
               </View>
@@ -135,7 +146,7 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: '#223F64',
     alignItems: 'center',
-    paddingTop: 50,
+    paddingTop: 30,
   },
   title: {
     fontSize: 24,
@@ -167,5 +178,27 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 8,
     textAlign: 'center',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderColor: '#000',
+  },
+  cell: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 10,
+  },
+  iconCell: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    paddingVertical: 10,
+  },
+  headerTable: {
+    backgroundColor: '#223F64',
+    alignItems: 'center',
   },
 });
